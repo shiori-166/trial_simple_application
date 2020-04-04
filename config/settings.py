@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # 本番運用時は別の値に置き換えること。
 # 生成ツール：https://www.miniwebtool.com/django-secret-key-generator/
-SECRET_KEY = '_(u)&e-3076d7_a(gfhb85*)u-u4vwc%#qt7c7q3-t98%lvp&g'
+SECRET_KEY = 'roma6gh&+qhv#87av8pcqw-c!kx-_=df238ae7b(kmv+l@^ol@f6yln'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -184,3 +185,7 @@ LOGGING = {
         },
     }
 }
+
+
+if 'DYNO' in os.environ:
+    django_heroku.settings(locals())
